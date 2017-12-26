@@ -1,0 +1,193 @@
+var _user$project$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Main$controlView = function (model) {
+	return (!_elm_lang$core$Native_Utils.eq(
+		_elm_lang$core$List$length(model.todoItems),
+		0)) ? _elm_lang$html$Html$text(
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			'items: ',
+			_elm_lang$core$Basics$toString(
+				_elm_lang$core$List$length(model.todoItems)))) : _elm_lang$html$Html$text('');
+};
+var _user$project$Main$TodoItem = F2(
+	function (a, b) {
+		return {title: a, completed: b};
+	});
+var _user$project$Main$Model = F3(
+	function (a, b, c) {
+		return {todoItems: a, currentTodo: b, show: c};
+	});
+var _user$project$Main$Active = {ctor: 'Active'};
+var _user$project$Main$Completed = {ctor: 'Completed'};
+var _user$project$Main$All = {ctor: 'All'};
+var _user$project$Main$initialModel = {
+	todoItems: {ctor: '[]'},
+	currentTodo: '',
+	show: _user$project$Main$All
+};
+var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'SwitchShowMode':
+				var _p1 = _p0._0;
+				switch (_p1.ctor) {
+					case 'All':
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								model,
+								{show: _user$project$Main$All}),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					case 'Completed':
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								model,
+								{show: _user$project$Main$Completed}),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					default:
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								model,
+								{show: _user$project$Main$Active}),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+				}
+			case 'UpdateCurrentTodo':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{currentTodo: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'AddTodo':
+				return (!_elm_lang$core$String$isEmpty(model.currentTodo)) ? {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							currentTodo: '',
+							todoItems: {
+								ctor: '::',
+								_0: A2(_user$project$Main$TodoItem, model.currentTodo, false),
+								_1: model.todoItems
+							}
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				} : {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _user$project$Main$RemoveTodo = {ctor: 'RemoveTodo'};
+var _user$project$Main$itemView = function (todoItem) {
+	return A2(
+		_elm_lang$html$Html$li,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$input,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$type_('checkbox'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(todoItem.title),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$button,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$RemoveTodo),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('X'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Main$AddTodo = {ctor: 'AddTodo'};
+var _user$project$Main$UpdateCurrentTodo = function (a) {
+	return {ctor: 'UpdateCurrentTodo', _0: a};
+};
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$input,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$placeholder('Todo item'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$value(model.currentTodo),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$UpdateCurrentTodo),
+							_1: {ctor: '[]'}
+						}
+					}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$button,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$AddTodo),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Add'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$br,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$ul,
+							{ctor: '[]'},
+							A2(_elm_lang$core$List$map, _user$project$Main$itemView, model.todoItems)),
+						_1: {
+							ctor: '::',
+							_0: _user$project$Main$controlView(model),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Main$main = _elm_lang$html$Html$program(
+	{init: _user$project$Main$init, update: _user$project$Main$update, view: _user$project$Main$view, subscriptions: _user$project$Main$subscriptions})();
+var _user$project$Main$SwitchShowMode = function (a) {
+	return {ctor: 'SwitchShowMode', _0: a};
+};
