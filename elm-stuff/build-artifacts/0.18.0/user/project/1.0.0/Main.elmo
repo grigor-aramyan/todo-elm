@@ -1,23 +1,13 @@
 var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
-var _user$project$Main$controlView = function (model) {
-	return (!_elm_lang$core$Native_Utils.eq(
-		_elm_lang$core$List$length(model.todoItems),
-		0)) ? _elm_lang$html$Html$text(
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			'items: ',
-			_elm_lang$core$Basics$toString(
-				_elm_lang$core$List$length(model.todoItems)))) : _elm_lang$html$Html$text('');
-};
-var _user$project$Main$TodoItem = F2(
-	function (a, b) {
-		return {title: a, completed: b};
-	});
-var _user$project$Main$Model = F3(
+var _user$project$Main$TodoItem = F3(
 	function (a, b, c) {
-		return {todoItems: a, currentTodo: b, show: c};
+		return {title: a, completed: b, id: c};
+	});
+var _user$project$Main$Model = F4(
+	function (a, b, c, d) {
+		return {todoItems: a, currentTodo: b, show: c, currentIndex: d};
 	});
 var _user$project$Main$Active = {ctor: 'Active'};
 var _user$project$Main$Completed = {ctor: 'Completed'};
@@ -25,7 +15,8 @@ var _user$project$Main$All = {ctor: 'All'};
 var _user$project$Main$initialModel = {
 	todoItems: {ctor: '[]'},
 	currentTodo: '',
-	show: _user$project$Main$All
+	show: _user$project$Main$All,
+	currentIndex: 0
 };
 var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Main$update = F2(
@@ -77,17 +68,68 @@ var _user$project$Main$update = F2(
 							currentTodo: '',
 							todoItems: {
 								ctor: '::',
-								_0: A2(_user$project$Main$TodoItem, model.currentTodo, false),
+								_0: A3(_user$project$Main$TodoItem, model.currentTodo, false, model.currentIndex),
 								_1: model.todoItems
-							}
+							},
+							currentIndex: model.currentIndex + 1
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				} : {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'RemoveTodo':
+				var removeItemWithId = F2(
+					function (id, todoItem) {
+						return _elm_lang$core$Native_Utils.eq(id, todoItem.id) ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(todoItem);
+					});
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							todoItems: A2(
+								_elm_lang$core$List$filterMap,
+								removeItemWithId(_p0._0),
+								model.todoItems)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'RemoveAll':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							todoItems: {ctor: '[]'}
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			default:
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				var toggleCompleted = F2(
+					function (id, todoItem) {
+						return _elm_lang$core$Native_Utils.eq(id, todoItem.id) ? _elm_lang$core$Native_Utils.update(
+							todoItem,
+							{completed: !todoItem.completed}) : todoItem;
+					});
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							todoItems: A2(
+								_elm_lang$core$List$map,
+								toggleCompleted(_p0._0),
+								model.todoItems)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 		}
 	});
-var _user$project$Main$RemoveTodo = {ctor: 'RemoveTodo'};
+var _user$project$Main$ToggleCompleted = function (a) {
+	return {ctor: 'ToggleCompleted', _0: a};
+};
+var _user$project$Main$RemoveAll = {ctor: 'RemoveAll'};
+var _user$project$Main$RemoveTodo = function (a) {
+	return {ctor: 'RemoveTodo', _0: a};
+};
 var _user$project$Main$itemView = function (todoItem) {
 	return A2(
 		_elm_lang$html$Html$li,
@@ -99,19 +141,42 @@ var _user$project$Main$itemView = function (todoItem) {
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html_Attributes$type_('checkbox'),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$checked(todoItem.completed),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onClick(
+								_user$project$Main$ToggleCompleted(todoItem.id)),
+							_1: {ctor: '[]'}
+						}
+					}
 				},
 				{ctor: '[]'}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text(todoItem.title),
+				_0: _elm_lang$html$Html$text(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(todoItem.id),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							' ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								todoItem.title,
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									' ',
+									_elm_lang$core$Basics$toString(todoItem.completed)))))),
 				_1: {
 					ctor: '::',
 					_0: A2(
 						_elm_lang$html$Html$button,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$RemoveTodo),
+							_0: _elm_lang$html$Html_Events$onClick(
+								_user$project$Main$RemoveTodo(todoItem.id)),
 							_1: {ctor: '[]'}
 						},
 						{
@@ -124,9 +189,137 @@ var _user$project$Main$itemView = function (todoItem) {
 			}
 		});
 };
+var _user$project$Main$listView = function (model) {
+	var _p2 = model.show;
+	switch (_p2.ctor) {
+		case 'All':
+			return A2(_elm_lang$core$List$map, _user$project$Main$itemView, model.todoItems);
+		case 'Active':
+			return A2(
+				_elm_lang$core$List$map,
+				_user$project$Main$itemView,
+				A2(
+					_elm_lang$core$List$filter,
+					function (todoItem) {
+						return !todoItem.completed;
+					},
+					model.todoItems));
+		default:
+			return A2(
+				_elm_lang$core$List$map,
+				_user$project$Main$itemView,
+				A2(
+					_elm_lang$core$List$filter,
+					function (todoItem) {
+						return todoItem.completed;
+					},
+					model.todoItems));
+	}
+};
 var _user$project$Main$AddTodo = {ctor: 'AddTodo'};
 var _user$project$Main$UpdateCurrentTodo = function (a) {
 	return {ctor: 'UpdateCurrentTodo', _0: a};
+};
+var _user$project$Main$SwitchShowMode = function (a) {
+	return {ctor: 'SwitchShowMode', _0: a};
+};
+var _user$project$Main$controlView = function (model) {
+	return (!_elm_lang$core$Native_Utils.eq(
+		_elm_lang$core$List$length(model.todoItems),
+		0)) ? A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'items: ',
+					_elm_lang$core$Basics$toString(
+						_elm_lang$core$List$length(model.todoItems)))),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$br,
+					{ctor: '[]'},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Show: '),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(
+									_user$project$Main$SwitchShowMode(_user$project$Main$Active)),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Actives'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(
+										_user$project$Main$SwitchShowMode(_user$project$Main$Completed)),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Completed'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$button,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Events$onClick(
+											_user$project$Main$SwitchShowMode(_user$project$Main$All)),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('All'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$br,
+										{ctor: '[]'},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$button,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$RemoveAll),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Remove All'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}) : _elm_lang$html$Html$text('');
 };
 var _user$project$Main$view = function (model) {
 	return A2(
@@ -175,7 +368,7 @@ var _user$project$Main$view = function (model) {
 						_0: A2(
 							_elm_lang$html$Html$ul,
 							{ctor: '[]'},
-							A2(_elm_lang$core$List$map, _user$project$Main$itemView, model.todoItems)),
+							_user$project$Main$listView(model)),
 						_1: {
 							ctor: '::',
 							_0: _user$project$Main$controlView(model),
@@ -188,6 +381,3 @@ var _user$project$Main$view = function (model) {
 };
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{init: _user$project$Main$init, update: _user$project$Main$update, view: _user$project$Main$view, subscriptions: _user$project$Main$subscriptions})();
-var _user$project$Main$SwitchShowMode = function (a) {
-	return {ctor: 'SwitchShowMode', _0: a};
-};
