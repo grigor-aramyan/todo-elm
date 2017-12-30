@@ -4,103 +4,8 @@
     <list default="true" id="656afbcf-3657-4b06-88bb-fb6aa86aa919" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Main.elm" afterPath="$PROJECT_DIR$/Main.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-package.json" afterPath="$PROJECT_DIR$/elm-package.json" />
       <change beforePath="$PROJECT_DIR$/elm-stuff/build-artifacts/0.18.0/user/project/1.0.0/Main.elmi" afterPath="$PROJECT_DIR$/elm-stuff/build-artifacts/0.18.0/user/project/1.0.0/Main.elmi" />
       <change beforePath="$PROJECT_DIR$/elm-stuff/build-artifacts/0.18.0/user/project/1.0.0/Main.elmo" afterPath="$PROJECT_DIR$/elm-stuff/build-artifacts/0.18.0/user/project/1.0.0/Main.elmo" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/exact-dependencies.json" afterPath="$PROJECT_DIR$/elm-stuff/exact-dependencies.json" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/.eslintrc" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/.eslintrc" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/.gitignore" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/.travis.yml" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/.travis.yml" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/CONTRIBUTING.md" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/LICENSE" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/README.md" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/README.md" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/changelog.md" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/changelog.md" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/elm-package.json" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/elm-package.json" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Array.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Array.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Basics.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Basics.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Bitwise.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Bitwise.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Char.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Char.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Color.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Color.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Date.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Date.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Debug.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Debug.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Dict.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Dict.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Json/Decode.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Json/Decode.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Json/Encode.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Json/Encode.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/List.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/List.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Maybe.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Maybe.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Array.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Array.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Basics.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Basics.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Bitwise.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Bitwise.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Char.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Char.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Date.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Date.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Debug.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Debug.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Json.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Json.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/List.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/List.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Platform.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Platform.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Regex.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Regex.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Scheduler.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Scheduler.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/String.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/String.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Time.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Time.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Utils.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Utils.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Platform.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Platform.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Platform/Cmd.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Platform/Cmd.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Platform/Sub.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Platform/Sub.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Process.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Process.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Random.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Random.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Regex.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Regex.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Result.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Result.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Set.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Set.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/String.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/String.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Task.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Task.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Time.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Time.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Tuple.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/src/Tuple.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Main.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Main.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Array.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Array.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Basics.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Basics.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Bitwise.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Bitwise.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Char.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Char.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/CodeGen.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/CodeGen.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Dict.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Dict.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Equality.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Equality.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Json.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Json.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/List.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/List.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Maybe.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Maybe.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Regex.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Regex.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Result.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Result.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Set.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/Set.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/String.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/Test/String.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/elm-package.json" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/elm-package.json" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/run-tests.sh" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/core/5.1.1/tests/run-tests.sh" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/LICENSE" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/README.md" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/README.md" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/elm-package.json" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/elm-package.json" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/properties-vs-attributes.md" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/properties-vs-attributes.md" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Attributes.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Attributes.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Events.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Events.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Keyed.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Keyed.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Lazy.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/html/2.0.0/src/Html/Lazy.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/.gitignore" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/.travis.yml" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/.travis.yml" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/LICENSE" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/README.md" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/README.md" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/elm-package.json" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/elm-package.json" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/Native/Debug.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/Native/Debug.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/Native/VirtualDom.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/Native/VirtualDom.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Debug.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Debug.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Expando.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Expando.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Helpers.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Helpers.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/History.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/History.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Metadata.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Metadata.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Overlay.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Overlay.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Report.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom/Report.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/Native/TestHelpers.js" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/Native/TestHelpers.js" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/TestCases/Lazy.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/TestCases/Lazy.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/TestHelpers.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/TestHelpers.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/TestMain.elm" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/TestMain.elm" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/elm-package.json" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/elm-package.json" />
-      <change beforePath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/run-tests.sh" afterPath="$PROJECT_DIR$/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/run-tests.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -114,8 +19,8 @@
       <file leaf-file-name="Main.elm" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main.elm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="180" column="31" lean-forward="false" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
+            <state relative-caret-position="411">
+              <caret line="195" column="21" lean-forward="true" selection-start-line="195" selection-start-column="21" selection-end-line="195" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -162,8 +67,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,8 +86,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,11 +298,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Main.elm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.elm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/elm-stuff/exact-dependencies.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -405,14 +325,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="90" lean-forward="false" selection-start-line="15" selection-start-column="90" selection-end-line="15" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.elm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="180" column="31" lean-forward="false" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
+        <state relative-caret-position="411">
+          <caret line="195" column="21" lean-forward="true" selection-start-line="195" selection-start-column="21" selection-end-line="195" selection-end-column="21" />
           <folding />
         </state>
       </provider>

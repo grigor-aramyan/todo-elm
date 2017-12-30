@@ -132,6 +132,7 @@ innerContainer =
     styled div
         [ display flex_
         , alignItems center
+        , Styled.width (percent 50)
         , backgroundColor white
         , flexDirection column
         , padding (px 4)
@@ -182,6 +183,22 @@ styledDelete =
         ]
 
 
+styledControlButtons =
+    styled button
+        [ backgroundColor white
+        , border (px 1) solid lightGray
+        , margin (px 2)
+        , padding (px 5)
+        ]
+styledActiveControlButtons =
+    styled button
+        [ backgroundColor white
+        , border (px 1) solid pink
+        , margin (px 2)
+        , padding (px 5)
+        ]
+
+
 
 -- VIEW
 
@@ -196,6 +213,7 @@ view model =
                 ]
                 , br [] []
                 , styledUl [ ] ( listView model )
+                , br [] []
                 , controlView model
 
             ]
@@ -232,11 +250,14 @@ controlView model =
         [ text ( "items: " ++ toString(List.length model.todoItems) )
         , br [] []
         , text "Show: "
-        , button [ onClick (SwitchShowMode Active) ] [ text "Actives" ]
-        , button [ onClick (SwitchShowMode Completed) ] [ text "Completed" ]
-        , button [ onClick (SwitchShowMode All) ] [ text "All" ]
-        , br [] []
-        , button [ onClick RemoveAll ] [ text "Remove All" ]
+        , (if (model.show == Active) then styledActiveControlButtons else styledControlButtons)
+            [ onClick (SwitchShowMode Active) ] [ text "Actives" ]
+        , (if (model.show == Completed) then styledActiveControlButtons else styledControlButtons)
+            [ onClick (SwitchShowMode Completed) ] [ text "Completed" ]
+        , (if (model.show == All) then styledActiveControlButtons else styledControlButtons)
+            [ onClick (SwitchShowMode All) ] [ text "All" ]
+        , br [] [], br [] []
+        , styledControlButtons [ onClick RemoveAll ] [ text "Remove All" ]
         ]
     else
         text ""

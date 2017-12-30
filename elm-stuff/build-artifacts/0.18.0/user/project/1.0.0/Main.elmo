@@ -1,6 +1,58 @@
 var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
+var _user$project$Main$styledActiveControlButtons = A2(
+	_styled_components$elm_styled$Styled$styled,
+	_elm_lang$html$Html$button,
+	{
+		ctor: '::',
+		_0: _styled_components$elm_styled$Styled$backgroundColor(_styled_components$elm_styled$Styled_Colors$white),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_styled_components$elm_styled$Styled$border,
+				_styled_components$elm_styled$Styled$px(1),
+				_styled_components$elm_styled$Styled$solid,
+				_styled_components$elm_styled$Styled_Colors$pink),
+			_1: {
+				ctor: '::',
+				_0: _styled_components$elm_styled$Styled$margin(
+					_styled_components$elm_styled$Styled$px(2)),
+				_1: {
+					ctor: '::',
+					_0: _styled_components$elm_styled$Styled$padding(
+						_styled_components$elm_styled$Styled$px(5)),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
+var _user$project$Main$styledControlButtons = A2(
+	_styled_components$elm_styled$Styled$styled,
+	_elm_lang$html$Html$button,
+	{
+		ctor: '::',
+		_0: _styled_components$elm_styled$Styled$backgroundColor(_styled_components$elm_styled$Styled_Colors$white),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_styled_components$elm_styled$Styled$border,
+				_styled_components$elm_styled$Styled$px(1),
+				_styled_components$elm_styled$Styled$solid,
+				_styled_components$elm_styled$Styled_Colors$lightGray),
+			_1: {
+				ctor: '::',
+				_0: _styled_components$elm_styled$Styled$margin(
+					_styled_components$elm_styled$Styled$px(2)),
+				_1: {
+					ctor: '::',
+					_0: _styled_components$elm_styled$Styled$padding(
+						_styled_components$elm_styled$Styled$px(5)),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
 var _user$project$Main$styledDelete = A2(
 	_styled_components$elm_styled$Styled$styled,
 	_elm_lang$html$Html$button,
@@ -143,15 +195,20 @@ var _user$project$Main$innerContainer = A2(
 			_0: _styled_components$elm_styled$Styled$alignItems(_styled_components$elm_styled$Styled$center),
 			_1: {
 				ctor: '::',
-				_0: _styled_components$elm_styled$Styled$backgroundColor(_styled_components$elm_styled$Styled_Colors$white),
+				_0: _styled_components$elm_styled$Styled$width(
+					_styled_components$elm_styled$Styled$percent(50)),
 				_1: {
 					ctor: '::',
-					_0: _styled_components$elm_styled$Styled$flexDirection(_styled_components$elm_styled$Styled$column),
+					_0: _styled_components$elm_styled$Styled$backgroundColor(_styled_components$elm_styled$Styled_Colors$white),
 					_1: {
 						ctor: '::',
-						_0: _styled_components$elm_styled$Styled$padding(
-							_styled_components$elm_styled$Styled$px(4)),
-						_1: {ctor: '[]'}
+						_0: _styled_components$elm_styled$Styled$flexDirection(_styled_components$elm_styled$Styled$column),
+						_1: {
+							ctor: '::',
+							_0: _styled_components$elm_styled$Styled$padding(
+								_styled_components$elm_styled$Styled$px(4)),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}
@@ -429,7 +486,7 @@ var _user$project$Main$controlView = function (model) {
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$button,
+							_elm_lang$core$Native_Utils.eq(model.show, _user$project$Main$Active) ? _user$project$Main$styledActiveControlButtons : _user$project$Main$styledControlButtons,
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(
@@ -444,7 +501,7 @@ var _user$project$Main$controlView = function (model) {
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_elm_lang$html$Html$button,
+								_elm_lang$core$Native_Utils.eq(model.show, _user$project$Main$Completed) ? _user$project$Main$styledActiveControlButtons : _user$project$Main$styledControlButtons,
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html_Events$onClick(
@@ -459,7 +516,7 @@ var _user$project$Main$controlView = function (model) {
 							_1: {
 								ctor: '::',
 								_0: A2(
-									_elm_lang$html$Html$button,
+									_elm_lang$core$Native_Utils.eq(model.show, _user$project$Main$All) ? _user$project$Main$styledActiveControlButtons : _user$project$Main$styledControlButtons,
 									{
 										ctor: '::',
 										_0: _elm_lang$html$Html_Events$onClick(
@@ -480,18 +537,25 @@ var _user$project$Main$controlView = function (model) {
 									_1: {
 										ctor: '::',
 										_0: A2(
-											_elm_lang$html$Html$button,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$RemoveAll),
-												_1: {ctor: '[]'}
-											},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Remove All'),
-												_1: {ctor: '[]'}
-											}),
-										_1: {ctor: '[]'}
+											_elm_lang$html$Html$br,
+											{ctor: '[]'},
+											{ctor: '[]'}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_user$project$Main$styledControlButtons,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$RemoveAll),
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Remove All'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
 									}
 								}
 							}
@@ -563,8 +627,15 @@ var _user$project$Main$view = function (model) {
 									_user$project$Main$listView(model)),
 								_1: {
 									ctor: '::',
-									_0: _user$project$Main$controlView(model),
-									_1: {ctor: '[]'}
+									_0: A2(
+										_elm_lang$html$Html$br,
+										{ctor: '[]'},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: _user$project$Main$controlView(model),
+										_1: {ctor: '[]'}
+									}
 								}
 							}
 						}
