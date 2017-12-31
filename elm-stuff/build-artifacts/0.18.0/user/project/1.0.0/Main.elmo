@@ -1,6 +1,33 @@
-var _user$project$Main$subscriptions = function (model) {
-	return _elm_lang$core$Platform_Sub$none;
-};
+var _user$project$Main$styledSaveButton = A2(
+	_styled_components$elm_styled$Styled$styled,
+	_elm_lang$html$Html$button,
+	{
+		ctor: '::',
+		_0: _styled_components$elm_styled$Styled$backgroundColor(_styled_components$elm_styled$Styled_Colors$white),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_styled_components$elm_styled$Styled$border,
+				_styled_components$elm_styled$Styled$px(2),
+				_styled_components$elm_styled$Styled$solid,
+				_styled_components$elm_styled$Styled_Colors$lightBlue),
+			_1: {
+				ctor: '::',
+				_0: _styled_components$elm_styled$Styled$padding(
+					_styled_components$elm_styled$Styled$px(8)),
+				_1: {
+					ctor: '::',
+					_0: _styled_components$elm_styled$Styled$borderRadius(
+						_styled_components$elm_styled$Styled$px(20)),
+					_1: {
+						ctor: '::',
+						_0: _styled_components$elm_styled$Styled$float(_styled_components$elm_styled$Styled$right_),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
 var _user$project$Main$styledActiveControlButtons = A2(
 	_styled_components$elm_styled$Styled$styled,
 	_elm_lang$html$Html$button,
@@ -249,10 +276,119 @@ var _user$project$Main$onKeyDown = function (tagger) {
 		'keydown',
 		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$keyCode));
 };
+var _user$project$Main$visualizeToValue = function (visualize) {
+	var _p0 = visualize;
+	switch (_p0.ctor) {
+		case 'All':
+			return _elm_lang$core$Json_Encode$string('All');
+		case 'Completed':
+			return _elm_lang$core$Json_Encode$string('Completed');
+		default:
+			return _elm_lang$core$Json_Encode$string('Active');
+	}
+};
+var _user$project$Main$todoItemToValue = function (todoItem) {
+	return _elm_lang$core$Json_Encode$object(
+		{
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'title',
+				_1: _elm_lang$core$Json_Encode$string(todoItem.title)
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'completed',
+					_1: _elm_lang$core$Json_Encode$bool(todoItem.completed)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'id',
+						_1: _elm_lang$core$Json_Encode$int(todoItem.id)
+					},
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Main$modelToValue = function (model) {
+	return _elm_lang$core$Json_Encode$object(
+		{
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'todoItems',
+				_1: _elm_lang$core$Json_Encode$list(
+					A2(_elm_lang$core$List$map, _user$project$Main$todoItemToValue, model.todoItems))
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'currentTodo',
+					_1: _elm_lang$core$Json_Encode$string(model.currentTodo)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'show',
+						_1: _user$project$Main$visualizeToValue(model.show)
+					},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'currentIndex',
+							_1: _elm_lang$core$Json_Encode$int(model.currentIndex)
+						},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
+var _user$project$Main$save = _elm_lang$core$Native_Platform.outgoingPort(
+	'save',
+	function (v) {
+		return v;
+	});
+var _user$project$Main$load = _elm_lang$core$Native_Platform.incomingPort('load', _elm_lang$core$Json_Decode$value);
 var _user$project$Main$TodoItem = F3(
 	function (a, b, c) {
 		return {title: a, completed: b, id: c};
 	});
+var _user$project$Main$todoItemDecoder = A4(
+	_elm_lang$core$Json_Decode$map3,
+	_user$project$Main$TodoItem,
+	A2(
+		_elm_lang$core$Json_Decode$at,
+		{
+			ctor: '::',
+			_0: 'title',
+			_1: {ctor: '[]'}
+		},
+		_elm_lang$core$Json_Decode$string),
+	A2(
+		_elm_lang$core$Json_Decode$at,
+		{
+			ctor: '::',
+			_0: 'completed',
+			_1: {ctor: '[]'}
+		},
+		_elm_lang$core$Json_Decode$bool),
+	A2(
+		_elm_lang$core$Json_Decode$at,
+		{
+			ctor: '::',
+			_0: 'id',
+			_1: {ctor: '[]'}
+		},
+		_elm_lang$core$Json_Decode$int));
 var _user$project$Main$Model = F4(
 	function (a, b, c, d) {
 		return {todoItems: a, currentTodo: b, show: c, currentIndex: d};
@@ -260,6 +396,58 @@ var _user$project$Main$Model = F4(
 var _user$project$Main$Active = {ctor: 'Active'};
 var _user$project$Main$Completed = {ctor: 'Completed'};
 var _user$project$Main$All = {ctor: 'All'};
+var _user$project$Main$visualizeDecoder = function (tag) {
+	var _p1 = tag;
+	switch (_p1) {
+		case 'All':
+			return _elm_lang$core$Json_Decode$succeed(_user$project$Main$All);
+		case 'Completed':
+			return _elm_lang$core$Json_Decode$succeed(_user$project$Main$Completed);
+		case 'Active':
+			return _elm_lang$core$Json_Decode$succeed(_user$project$Main$Active);
+		default:
+			return _elm_lang$core$Json_Decode$fail(
+				A2(_elm_lang$core$Basics_ops['++'], tag, ' is not recognized as visualize value'));
+	}
+};
+var _user$project$Main$modelDecoder = A5(
+	_elm_lang$core$Json_Decode$map4,
+	_user$project$Main$Model,
+	A2(
+		_elm_lang$core$Json_Decode$at,
+		{
+			ctor: '::',
+			_0: 'todoItems',
+			_1: {ctor: '[]'}
+		},
+		_elm_lang$core$Json_Decode$list(_user$project$Main$todoItemDecoder)),
+	A2(
+		_elm_lang$core$Json_Decode$at,
+		{
+			ctor: '::',
+			_0: 'currentTodo',
+			_1: {ctor: '[]'}
+		},
+		_elm_lang$core$Json_Decode$string),
+	A2(
+		_elm_lang$core$Json_Decode$andThen,
+		_user$project$Main$visualizeDecoder,
+		A2(
+			_elm_lang$core$Json_Decode$at,
+			{
+				ctor: '::',
+				_0: 'show',
+				_1: {ctor: '[]'}
+			},
+			_elm_lang$core$Json_Decode$string)),
+	A2(
+		_elm_lang$core$Json_Decode$at,
+		{
+			ctor: '::',
+			_0: 'currentIndex',
+			_1: {ctor: '[]'}
+		},
+		_elm_lang$core$Json_Decode$int));
 var _user$project$Main$initialModel = {
 	todoItems: {ctor: '[]'},
 	currentTodo: '',
@@ -269,11 +457,11 @@ var _user$project$Main$initialModel = {
 var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Main$update = F2(
 	function (msg, model) {
-		var _p0 = msg;
-		switch (_p0.ctor) {
+		var _p2 = msg;
+		switch (_p2.ctor) {
 			case 'SwitchShowMode':
-				var _p1 = _p0._0;
-				switch (_p1.ctor) {
+				var _p3 = _p2._0;
+				switch (_p3.ctor) {
 					case 'All':
 						return {
 							ctor: '_Tuple2',
@@ -304,7 +492,7 @@ var _user$project$Main$update = F2(
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{currentTodo: _p0._0}),
+						{currentTodo: _p2._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'RemoveTodo':
@@ -319,7 +507,7 @@ var _user$project$Main$update = F2(
 						{
 							todoItems: A2(
 								_elm_lang$core$List$filterMap,
-								removeItemWithId(_p0._0),
+								removeItemWithId(_p2._0),
 								model.todoItems)
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
@@ -348,13 +536,13 @@ var _user$project$Main$update = F2(
 						{
 							todoItems: A2(
 								_elm_lang$core$List$map,
-								toggleCompleted(_p0._0),
+								toggleCompleted(_p2._0),
 								model.todoItems)
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			default:
-				return (_elm_lang$core$Native_Utils.eq(_p0._0, 13) && (!_elm_lang$core$String$isEmpty(model.currentTodo))) ? {
+			case 'KeyDown':
+				return (_elm_lang$core$Native_Utils.eq(_p2._0, 13) && (!_elm_lang$core$String$isEmpty(model.currentTodo))) ? {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
@@ -369,8 +557,36 @@ var _user$project$Main$update = F2(
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				} : {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Save':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Main$save(
+						_user$project$Main$modelToValue(model))
+				};
+			case 'Load':
+				return {ctor: '_Tuple2', _0: _p2._0, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
+var _user$project$Main$NoOp = {ctor: 'NoOp'};
+var _user$project$Main$Save = {ctor: 'Save'};
+var _user$project$Main$Load = function (a) {
+	return {ctor: 'Load', _0: a};
+};
+var _user$project$Main$decodeModel = function (value) {
+	var result = A2(_elm_lang$core$Json_Decode$decodeValue, _user$project$Main$modelDecoder, value);
+	var _p4 = result;
+	if (_p4.ctor === 'Ok') {
+		return _user$project$Main$Load(_p4._0);
+	} else {
+		return _user$project$Main$NoOp;
+	}
+};
+var _user$project$Main$subscriptions = function (model) {
+	return _user$project$Main$load(_user$project$Main$decodeModel);
+};
 var _user$project$Main$KeyDown = function (a) {
 	return {ctor: 'KeyDown', _0: a};
 };
@@ -428,8 +644,8 @@ var _user$project$Main$itemView = function (todoItem) {
 		});
 };
 var _user$project$Main$listView = function (model) {
-	var _p2 = model.show;
-	switch (_p2.ctor) {
+	var _p5 = model.show;
+	switch (_p5.ctor) {
 		case 'All':
 			return A2(_elm_lang$core$List$map, _user$project$Main$itemView, model.todoItems);
 		case 'Active':
@@ -554,7 +770,22 @@ var _user$project$Main$controlView = function (model) {
 													_0: _elm_lang$html$Html$text('Remove All'),
 													_1: {ctor: '[]'}
 												}),
-											_1: {ctor: '[]'}
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_user$project$Main$styledSaveButton,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Save),
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Save'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}
 										}
 									}
 								}

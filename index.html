@@ -1,0 +1,14 @@
+<div id="main"></div>
+<script src="main.js"></script>
+<script>
+    const node = document.getElementById("main")
+    const app = Elm.Main.embed(node)
+
+    app.ports.save.subscribe(function(record) {
+        console.log(record)
+        rec_str = JSON.stringify(record)
+        localStorage.setItem("model", rec_str)
+    })
+
+    app.ports.load.send(JSON.parse(localStorage.getItem("model")))
+</script>

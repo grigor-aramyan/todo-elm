@@ -1,11 +1,12 @@
-module Main exposing (..)
+port module Main exposing (..)
 
 import Html exposing (..)
 import Html.Events exposing (..)
 import Html.Attributes exposing (..)
 import Json.Decode as Json
+import Json.Encode exposing (encode, Value, string, list)
 import Styled exposing (..)
-import Styled.Colors exposing (pink, lightGray, lightPink, white)
+import Styled.Colors exposing (pink, lightGray, lightPink, white, lightBlue)
 
 
 main : Program Never Model Msg
@@ -22,6 +23,61 @@ init =
     ( initialModel, Cmd.none )
 
 -- MODEL
+
+
+-- DECODERS
+
+modelDecoder : Json.Decoder Model
+modelDecoder =
+    Json.map4 Model
+        (Json.at ["todoItems"] (Json.list todoItemDecoder) )
+        (Json.at ["currentTodo"] Json.string)
+        (Json.at ["show"] Json.string |> Json.andThen visualizeDecoder )
+        (Json.at ["currentIndex"] Json.int)
+
+todoItemDecoder : Json.Decoder TodoItem
+todoItemDecoder =
+    Json.map3 TodoItem
+        (Json.at ["title"] Json.string)
+        (Json.at ["completed"] Json.bool)
+        (Json.at ["id"] Json.int)
+
+visualizeDecoder : String -> Json.Decoder Visualize
+visualizeDecoder tag =
+    case tag of
+        "All" -> Json.succeed All
+        "Completed" -> Json.succeed Completed
+        "Active" -> Json.succeed Active
+        _ -> Json.fail(tag ++ " is not recognized as visualize value")
+
+
+-- ENCODERS
+
+modelToValue : Model -> Json.Encode.Value
+modelToValue model =
+    Json.Encode.object
+        [
+            ("todoItems", Json.Encode.list (List.map todoItemToValue model.todoItems) ),
+            ("currentTodo", Json.Encode.string model.currentTodo ),
+            ("show", visualizeToValue model.show ),
+            ("currentIndex", Json.Encode.int model.currentIndex )
+        ]
+
+todoItemToValue : TodoItem -> Json.Encode.Value
+todoItemToValue todoItem =
+    Json.Encode.object
+        [
+            ("title", Json.Encode.string todoItem.title ),
+            ("completed", Json.Encode.bool todoItem.completed ),
+            ("id", Json.Encode.int todoItem.id )
+        ]
+
+visualizeToValue : Visualize -> Json.Encode.Value
+visualizeToValue visualize =
+    case visualize of
+        All -> Json.Encode.string "All"
+        Completed -> Json.Encode.string "Completed"
+        Active -> Json.Encode.string "Active"
 
 
 type Visualize =
@@ -62,6 +118,9 @@ type Msg =
     | RemoveAll
     | ToggleCompleted Int
     | KeyDown Int
+    | Load Model
+    | Save
+    | NoOp
 
 
 onKeyDown : ( Int -> msg ) -> Attribute msg
@@ -103,7 +162,7 @@ update msg model =
                     else
                         todoItem
             in
-                ( { model | todoItems = (List.map (toggleCompleted id) model.todoItems) }, Cmd.none)
+                ( { model | todoItems = (List.map (toggleCompleted id) model.todoItems) }, Cmd.none )
         KeyDown keyCode ->
             if (keyCode == 13) && (not (String.isEmpty model.currentTodo)) then
                 ( { model | currentTodo = ""
@@ -112,7 +171,12 @@ update msg model =
                     }, Cmd.none )
             else
                 ( model, Cmd.none )
-
+        Save ->
+            ( model, save (modelToValue model) )
+        Load model ->
+            ( model, Cmd.none )
+        NoOp ->
+            ( model, Cmd.none )
 
 
 -- STYLED COMPONENTS
@@ -199,6 +263,16 @@ styledActiveControlButtons =
         ]
 
 
+styledSaveButton =
+    styled button
+        [ backgroundColor white
+        , border (px 2) solid lightBlue
+        , padding (px 8)
+        , borderRadius (px 20)
+        , float right_
+        ]
+
+
 
 -- VIEW
 
@@ -215,7 +289,6 @@ view model =
                 , styledUl [ ] ( listView model )
                 , br [] []
                 , controlView model
-
             ]
         ]
 
@@ -258,11 +331,31 @@ controlView model =
             [ onClick (SwitchShowMode All) ] [ text "All" ]
         , br [] [], br [] []
         , styledControlButtons [ onClick RemoveAll ] [ text "Remove All" ]
+        , styledSaveButton [ onClick Save ] [ text "Save" ]
         ]
     else
         text ""
 
 
+decodeModel : Json.Value -> Msg
+decodeModel value =
+    let
+        result =
+            Json.decodeValue modelDecoder value
+    in
+        case result of
+            Ok model ->
+                Load model
+            Err _ ->
+                NoOp
+
+
+
+-- PORTS
+port save : Json.Value -> Cmd msg
+
+port load : ( Json.Value -> msg ) -> Sub msg
+
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    load (decodeModel)
